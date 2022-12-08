@@ -1,0 +1,467 @@
+body,
+html{
+  height:100%;
+  width:100%;
+}
+body {
+  background-image: url("image.png");
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden;
+  width:100%;
+  /*margin: 0;*/
+  /*padding: 10px;*/
+  display: grid;
+  font-family:'Times New Roman', Times, serif;
+  grid-gap: 0;
+  grid-template-columns:0px 70% 30% 5px;
+  grid-template-rows: 20% 50%;
+  grid-template-areas:
+    "space1 header header"
+    "space1 ModelViewrMain ModelViewrUI ";
+    /*"space1 footer footer ";*/
+}
+.navbar{
+  position:absolute;
+  background-color: green;
+  background-image: linear-gradient(white, rgb(211, 112, 112));
+  margin-top: 0%;
+  top: -33px;
+  height: 50px;
+  width:100%;
+  /*max-width: 1000px;*/
+border-radius: 15px;
+font-family: 'Times New Roman', Times, serif;
+font-style: oblique bold;
+text-decoration: none;
+}
+.navbar ul{
+    overflow:auto;
+    font-size: Large;
+}
+.navbar li{
+    float:left;
+    list-style: none;
+    padding:3px 3px;
+    margin:1px 119px;
+  margin-left:0;
+}
+.navbar li a{
+  text-decoration: none;
+}
+.navbar li a button{
+
+    text-decoration: none;
+    color:black;
+    border-radius: 10px;
+    background-color:rgb(102, 170, 102);
+    background-image: linear-gradient(white, rgb(248, 130, 130));
+    border: none;
+}
+.logo{
+  margin-left:0px ;
+}
+.navbar li a button:hover{
+  display: block;
+  text-decoration: none;
+  background-color: white;
+  background-image: linear-gradient(white, rgb(230, 230, 229));
+  border-radius: 5px;
+}
+.Backgroung-image{
+position: fixed;
+top: 0;
+bottom: 0;
+}
+.navbar.Inscene button{
+  position: absolute;
+  bottom: 11px;
+  left: 410px;
+  /*border-radius:10px;
+  width: 100px;
+  height: 30px;
+  /*background-color: #FE5143;*/
+  border: none;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  font-family: black 'Times New Roman', Times, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  line-height: 0px;
+  text-decoration: none
+}
+
+  @media screen and (max-width: 425px) {
+   .navbar.Inscene button{
+       left: 90%;
+       width: 85px;
+       height: 25px;
+       font-size: 16px;
+    }
+
+}
+#title h1{ 
+  white-space: nowrap;
+  margin-left: 778px;
+  margin-top: -48px;
+  font-family:'Times New Roman', Times, serif;
+  font-style: bold;
+  font-weight:1000;
+  font-size: 40px;
+  /*line-height: 32px;*/
+  color: rgb(171, 57, 111);
+  animation: Color 4s linear infinite;
+  -webkit-animation: Color 4s ease-in-out infinite;
+	  display: block;
+  	text-shadow:rgba(255,255,255,.5);
+/* Clip Background Image */
+	  background: url(animated-text-1.png) repeat-y;
+	  -webkit-background-clip: text;
+	  background-clip: text;
+
+/* Animate Background Image */
+
+	  -webkit-text-fill-color: transparent;
+	  -webkit-animation: aitf 30s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+	  -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+
+  }
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
+@keyframes Color{
+  0%{
+    color:#ea6565;
+  }
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+}
+#title span{
+  margin-left: 784px;
+  width: 100px;
+  font-family:'Times New Roman', Times, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 10px;
+  color: #5e5c5c;
+}
+header {
+  display: flex;
+  justify-content:left;
+  align-items: center;
+  font-size: 45px;
+  grid-area: header;
+}
+
+#loadingBar{
+  background-color: #00000000;
+  position: absolute;
+  top: 96%;
+  left: 36%;
+}
+
+.ModelViewrMain div{
+  position: absolute;
+}
+
+
+.ModelViewrMain {
+
+  display: grid;
+  /*padding-left: 30px;*/
+  grid-area: ModelViewrMain;
+  grid-template-columns:repeat(100%);
+  grid-template-rows:200%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "modelviewer environment";
+    /*"environment resetview autorotate ";*/
+}
+.p-4 {
+  padding: 3.5rem!important;
+}
+@media screen and (min-width: 769px) {
+  #title{
+    font-size: 2px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ModelViewrMain {
+    padding-left: 20px;
+    
+    display: grid;
+    grid-area: ModelViewrMain;
+    width: 113%;
+    /*padding: 50px;*/
+    /*margin-left: 30%;*/
+    grid-template-columns: 100%;
+    grid-template-rows: 300px auto auto auto;
+    grid-template-areas:
+      "modelviewer ";
+      /*"environment environment environment"*/
+      /*"reload resetview autorotate";*/
+  }
+  .col{
+    display: block;
+  }
+  #title{
+    margin-left: 12%;
+    text-align: center;
+  }
+  #title h1{
+    font-size: 20px;
+  }
+  .UIButtons{
+    position: relative;
+    padding-left: 22%;
+    font-size: 16px;
+    margin-left: 200px;
+  }
+
+
+  #one{
+    /*margin-left: 18%;*/
+    display: block;
+  }
+
+  #model-controls{
+    display: flex;
+  }
+
+}
+#loadingBar {
+  position: absolute;
+  z-index: 3;
+  height: 3%;
+  width: 25%;
+  margin: auto;
+  border-style: solid;
+  border-radius: 25px;
+  max-height: 2.5%;
+  box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.2),
+    0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  margin-top: 200px;
+  margin-left: -90px;
+}
+
+#loadingProgress {
+  position: absolute;
+  margin-top: 100px;
+  display: block;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 0%;
+  height: 100%;
+  border-radius: 25px;
+  float: left;
+  transition: width 0.3s;
+}
+#posterImage {
+  /*padding: 100px;*/
+  width: 750px;
+  height: 450px;
+  object-fit: cover;
+  margin-top:-50px;
+}
+
+#Poster {
+  position: absolute;
+  z-index: 3;
+  width: 750px;
+  height: 450px;
+  margin-top: 0px;
+}
+
+#ModelViewer {
+  /*padding-left: 300px;*/
+  width: 750px;
+  height: 450px;
+  background-color: rgb(255, 255, 255);
+  z-index:1;
+  margin-top: -50px;
+}
+.AutoRotate {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  grid-area: autorotate;
+}
+
+@media screen and (max-width: 768px) {
+  .AutoRotate {
+    margin-top: -8px;
+  }
+}
+
+.AutoRotate input {
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.EnvironmentImage select {
+  background: linear-gradient(white,#f09ba3);
+  position: relative;
+  display:block;
+  border-radius:9px;
+  border: 3px solid;
+  border-color: #f09ba3 #f09ba3;
+  height: 70px;
+  width: 258px;
+  font-size: 23px;
+  margin-top: 80px;
+  margin-left: 782px;
+  font-weight: 200px;
+}
+.EnvironmentImage select option{
+  background: whitesmoke;
+  border-color: #f09ba3 #f09ba3;
+}
+.EnvironmentImage select option:hover{
+  background-color: #f09ba3;
+
+}
+.EnvironmentImage option.envi {
+  font-size: large;
+}
+.EnvironmentImage option.wooden {
+  font-size: large;
+}
+.EnvironmentImage option.ballroom {
+  font-size: large;
+}
+.EnvironmentImage option.anni {
+  font-size: large;
+}
+.EnvironmentImage option.autoshop {
+  font-size: large;
+}
+.EnvironmentImage option.studio {
+  font-size: large;
+}
+.EnvironmentImage option.kiara {
+  font-size: large;
+}
+.EnvironmentImage option.lebombo {
+  font-size: large;
+}
+@media screen and (max-width: 768px) {
+  .EnvironmentImage select{
+    font-size: 16px;
+    margin-left: 50%;
+    width: 200px;
+    /*display: block;*/
+  }
+
+}
+.content-text{
+
+  font-family:'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 50px;
+  color:black;
+
+}
+.ModelViewrUI {
+  margin-left: 20px;
+  display: flex;
+  grid-area: ModelViewrUI;
+   grid-template-columns: 125px 80%;
+  grid-column-gap: 2px;
+  grid-row-gap: 100px;
+  grid-template-rows: 140px 50px 45px 45px 45px 45px 45px;
+  grid-template-areas:
+    "FurnitureName FurnitureName"
+    "Animation AnimationButtons"
+    "color_name colors"
+    "green_name green"
+    "blue_name blue"
+    "brightness_name brightness"
+    "Details DetailsObjects";
+}
+.UIButtons {
+  position:absolute;
+  height: 70px;
+  width: 258px;
+  display: block;
+  justify-content: left;
+  margin-left: 782px;
+  margin-top: 200px;
+  border: 3px solid;
+  border-color: #f09ba3 #f09ba3;
+  border-radius:9px;
+background: linear-gradient(white,#f09ba3); ;
+}
+.UIButtons input {
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  display: inline-block;
+  height: 5px;
+  width: 208px;
+  margin: 0px 10px;
+}
+
+#Lights{
+  height: 30px;
+  width: 45px;
+  margin-left: 200px;
+  margin-top: 19px;
+  
+
+}
+.ltitle{
+  margin-left: 3px;
+  margin-top:6px;
+  font-family:'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 50px;
+  color:black;
+}
+.UIButtons .form-check-input {
+  /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(254, 81, 67)'/%3e%3c/svg%3e");*/
+ background-position: left center;
+ /*transition: background-position .15s ease-in-out;*/
+
+}
+.UIButtons .form-check-input:focus {
+  transition: background-position .15s ease-in-out;
+}
+.UIButtons .form-check-input:checked {
+   /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='pink'/%3e%3c/svg%3e");*/
+   background-color: #FE5143;
+    border-color: pink;
+    background-position: right center;
+}
+.UIButtons .form-check-input[type="checkbox"] {
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(254, 81, 67)'/%3e%3c/svg%3e");
+}
+.UIButtons .form-check-input[type="checkbox"]:checked {
+     /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(254, 81, 67)'/%3e%3c/svg%3e");*/
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+
+}
+

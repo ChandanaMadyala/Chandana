@@ -1,0 +1,688 @@
+body,
+html {
+  height: 100vh;
+}
+
+body {
+  background-image: -webkit-linear-gradient();
+  margin: 0;
+  /*padding: 10px;*/
+  display: grid;
+  font-family: "Monsterrat";
+  grid-gap: 0px;
+  grid-template-columns:10px 70% 30% 5px;
+  grid-template-rows: 0% 100%;
+  grid-template-areas:
+    "space1 header header"
+    "space1 ModelViewrMain ModelViewrUI ";
+    /*"space1 footer footer ";*/
+}
+
+#title{
+  width: 100%;
+  border-bottom: 2px solid #BABABA;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 2px;
+}
+
+#title h1{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 32px;
+  color: #000000;
+}
+
+
+#title span{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #4F4F4F;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  grid-area: header;
+}
+
+
+
+.ModelViewrMain {
+  /*margin: 0px 0;*/
+  display: grid;
+  /*padding-left: 30px;*/
+  grid-area: ModelViewrMain;
+  grid-template-columns:100%;
+  grid-template-rows: 100%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "modelviewer environment";
+    /*"environment resetview autorotate ";*/
+}
+
+@media screen and (min-width: 769px) {
+  #title{
+    font-size: 2px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ModelViewrMain {
+    padding-left: 20px;
+    display: grid;
+    grid-area: ModelViewrMain;
+    width: 113%;
+    /*padding: 50px;*/
+    /*margin-left: 30%;*/
+    grid-template-columns: 100%;
+    grid-template-rows: 300px auto auto auto;
+    grid-template-areas:
+      "modelviewer ";
+      /*"environment environment environment"*/
+      /*"reload resetview autorotate";*/
+  }
+  .col{
+    display: block;
+  }
+  #title{
+    margin-left: 12%;
+    text-align: center;
+  }
+  #title h1{
+    font-size: 20px;
+  }
+  .UIButtons{
+    padding-left: 22%;
+    font-size: 16px;
+  }
+  
+  .color_name{
+    padding-top: 20px;
+    padding-left: 60px;
+  }
+  .color_name_Green{
+    padding-top: 20px;
+    padding-left: 60px;
+  }
+  .color_name_Blue{
+    padding-top: 20px;
+    padding-left: 60px;
+  }
+  .brightness_name{
+    padding-top: 20px;
+    padding-left: 60px;
+  }
+  #ResetView{
+    /*display: block;*/
+    margin: 30px 20px 30px 70px;
+    width: 35px;
+    height: 35px;
+  }
+  #Reload{
+     margin: 30px 20% 30px 70px;
+    /*display: block;*/
+    width: 35px;
+    height: 35px;
+  }
+  /*#model-controls{
+    display: block;
+  }*/
+  .reset-view-btn img{
+  /*align-items: center;*/
+  margin: auto;
+  }
+
+  .reset-model-btn img{
+    width: auto;
+    height: 24px;
+  }
+
+  #one{
+    /*margin-left: 18%;*/
+    display: block;
+  }
+
+  #model-controls{
+    display: flex;
+  }
+
+}
+
+
+
+.ResetView {
+grid-area: resetview;
+}
+.Reload {
+grid-area: reload;
+}
+
+.ResetModel {
+  grid-area: resetmodel;
+}
+
+
+#posterImage {
+  /*padding: 100px;*/
+  width: 125%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#Poster {
+  padding: 10px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  grid-area: modelviewer;
+}
+
+#loadingBar {
+  z-index: 3;
+  height: 5%;
+  width: 50%;
+  margin: auto;
+  border-style: solid;
+  grid-area: modelviewer;
+  border-radius: 25px;
+  max-height: 2.5%;
+  box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.2),
+    0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+#loadingProgress {
+  display: block;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 0%;
+  height: 100%;
+  border-radius: 25px;
+  float: left;
+  transition: width 0.3s;
+}
+
+#ModelViewer {
+  /*padding-left: 300px;*/
+  width: 125%;
+  height: 100%;
+  grid-area: modelviewer;
+  background-color: rgb(255, 255, 255);
+  z-index: 0;
+}
+
+
+
+.AutoRotate {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  grid-area: autorotate;
+}
+
+@media screen and (max-width: 768px) {
+  .AutoRotate {
+    margin-top: -8px;
+  }
+}
+
+.AutoRotate input {
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.EnvironmentImage label{
+  padding-top: 30px;
+  display: block;
+  justify-content: left;
+  align-items: center;
+  grid-area: environment;
+}
+.EnvironmentImage select {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1.5px solid;
+  height: 30px;
+  width: 330px;
+  font-size: 16px;
+  margin-top: 30px;
+  /*margin-left: 10px;
+  padding-left: 5px;*/
+}
+.hdris-label{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .EnvironmentImage label{
+    font-size: 16px;
+    margin-left: 22%;
+    /*display: block;*/
+  }
+  .EnvironmentImage select{
+    font-size: 16px;
+    margin-left: 22%;
+    width: 200px;
+    /*display: block;*/
+  }
+
+}
+.content-label{
+
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #454545;
+
+}
+
+.content-text{
+
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 26px;
+  color: #000000;
+
+}
+
+.ModelViewrUI {
+  margin-left: 20px;
+  display: flex;
+  grid-area: ModelViewrUI;
+   grid-template-columns: 125px 80%; 
+  grid-column-gap: 2px;
+  grid-row-gap: 100px;
+  grid-template-rows: 140px 50px 45px 45px 45px 45px 45px;
+  grid-template-areas:
+    "FurnitureName FurnitureName"
+    "Animation AnimationButtons"
+    "color_name colors"
+    "green_name green"
+    "blue_name blue"
+    "brightness_name brightness"
+    "Details DetailsObjects";
+}
+
+
+
+.FurnitureName {
+  grid-area: FurnitureName;
+}
+
+.FurnitureNameMain {
+  font-size: 24px;
+  padding: 30px 0;
+  text-align: left;
+  margin: auto;
+  font-weight: bold;
+  color: #4e4e4e;
+}
+
+
+
+
+/* Colors CSS */
+
+
+
+.slider {
+  display: inline;
+  -webkit-appearance: none;
+  height: 5px;
+  border-radius: 0px;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  width: 97%;
+  margin: 0px 15px 0 0px;
+}
+
+@media screen and (max-width: 1024px) {
+  .slider{
+    margin-top: 23px;
+    margin-left: 605px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slider{
+    margin-top: 23px;
+    margin-left: 65px;
+    width: 80%;
+  }
+}
+
+#colorname_red::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: none;
+  background: rgb(245, 132, 151);
+  cursor: pointer;
+}
+
+#colorname_red::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background: var(--track-background, rgb(255, 0, 0));
+  cursor: pointer;
+}
+
+
+
+#colorname_green::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: var(--track-background, rgb(178, 238, 178));
+  cursor: pointer;
+}
+
+#colorname_green::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background: var(--track-background, rgb(0, 255, 0));
+  cursor: pointer;
+}
+
+#colorname_blue::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: var(--track-background, rgb(100, 100, 245));
+  cursor: pointer;
+}
+
+#colorname_blue::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #2c2c2c;
+  background: var(--track-background, rgb(0, 0, 255));
+  cursor: pointer;
+}
+
+/* Brightness Slider CSS */
+
+#brighntessrange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--track-background, rgb(207.75, 207.75, 207.75));
+  cursor: pointer;
+  border: 1px solid grey;
+}
+
+#brighntessrange::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+
+.brightness_name {
+  grid-area: brightness_name;
+  margin-top: -3px;
+  font-size: 16px;
+  /*font-weight: bold;*/
+  margin: auto;
+  margin-right: inherit;
+}
+
+.brightness {
+  grid-area: brightness;
+}
+
+.color_name {
+  grid-area: color_name;
+  margin-top: -3px;
+  font-size: 16px;
+  /*font-weight: bold;*/
+  margin: auto;
+  margin-right: inherit;
+}
+.colors {
+  grid-area: colors;
+}
+
+
+
+.color_name_Green {
+  grid-area: green_name;
+  margin-top: -3px;
+  font-size: 16px;
+  /*font-weight: bold;*/
+  margin: auto;
+  margin-right: inherit;
+}
+.colors {
+  grid-area: green;
+}
+
+
+.color_name_Blue {
+  grid-area: blue_name;
+  margin-top: -3px;
+  font-size: 16px;
+  /*font-weight: bold;*/
+  margin: auto;
+  margin-right: inherit;
+}
+.colors {
+  grid-area: blue;
+}
+
+
+.UI {
+  margin-top: 0;
+  padding-top: 0px;
+  font-size: 16px;
+  /*font-weight: bold;*/
+  margin: auto;
+  margin-right: inherit;
+}
+
+.UIButtons {
+  display: flex;
+  justify-content: left;
+  margin: 20px 0 0;
+}
+.UIButtons input {
+  background-color: #fafafa;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  margin: 0px 10px;
+}
+
+.Details {
+  grid-area: Details;
+  display: flex;
+  justify-content: left;
+  padding: 5px 0px;
+}
+
+.DetailsObjects {
+  grid-area: DetailsObjects;
+  margin-top: -10px;
+  margin-left: -15px;
+}
+
+.DetailsObjects p {
+  margin: 15px;
+}
+
+footer {
+  grid-area: footer;
+}
+#model-controls{
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+  }
+.playground{
+  /*margin: 0;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 100px);
+}
+
+
+.reset-view-btn{
+  /*margin-left: 90px;*/
+    /*margin-top: 10px;*/
+    width: 45px;
+    height: 45px;
+    background-color: #EBEBEB;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  margin-bottom: 15px;
+}
+
+.reset-model-btn{
+  /*margin-left: 90px;*/
+  /*margin-bottom: 15px;*/
+  border-radius: 50%;
+  margin-bottom: 15px;
+    width: 45px;
+    height: 45px;
+    background-color: #EBEBEB;
+    border: none;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+.reset-view-btn img{
+  width: auto;
+  height: 26px;
+}
+
+.reset-model-btn img{
+  width: auto;
+  height: 24px;
+}
+
+.flex-con{
+  margin-top: 0;
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+
+#Lights{
+  height: 22px;
+  width: 35px;
+  margin-left: 20px;
+  margin-top: 0px;
+
+}
+
+.UIButtons .form-check-input {
+  /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(254, 81, 67)'/%3e%3c/svg%3e");*/
+ background-position: left center;
+ /*transition: background-position .15s ease-in-out;*/
+
+}
+.UIButtons .form-check-input:focus {
+  transition: background-position .15s ease-in-out;      
+}
+.UIButtons .form-check-input:checked {
+   /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='pink'/%3e%3c/svg%3e");*/
+   background-color: #FE5143;
+    border-color: pink;
+    background-position: right center;
+}
+.UIButtons .form-check-input[type="checkbox"] {
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(254, 81, 67)'/%3e%3c/svg%3e");
+}
+.UIButtons .form-check-input[type="checkbox"]:checked {
+     /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb(254, 81, 67)'/%3e%3c/svg%3e");*/
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+
+}
+
+.AutoRotate{
+  display: none;
+}
+
+.AutoRotate button{
+  display: none;
+}
+
+.Inscene button{
+  position: relative;
+  bottom: 40px;
+  left: 108%;
+  border-radius:10px;
+  width: 100px;
+  height: 30px;
+  background-color: #FE5143;
+  border: none;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  line-height: 0px;
+}
+
+
+
+  @media screen and (max-width: 425px) {
+   .Inscene button{
+       left: 90%;
+       width: 85px;
+       height: 25px;
+       font-size: 16px;
+    }
+
+}
+
