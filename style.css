@@ -5,9 +5,11 @@ html{
 }
 body {
   background-image: url("image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden;
-  width:100%;
+  max-width:100%;
   /*margin: 0;*/
   /*padding: 10px;*/
   display: grid;
@@ -21,14 +23,16 @@ body {
     /*"space1 footer footer ";*/
 }
 .navbar{
-  position:absolute;
-  background-color: green;
+  position:fixed;
+  display: flex;
+  z-index: 9999;
   background-image: linear-gradient(white, rgb(211, 112, 112));
+  background-repeat: no-repeat;
   margin-top: 0%;
   top: -33px;
   height: 50px;
   width:100%;
-  /*max-width: 1000px;*/
+  max-width: 1438px;
 border-radius: 15px;
 font-family: 'Times New Roman', Times, serif;
 font-style: oblique bold;
@@ -465,3 +469,14 @@ background: linear-gradient(white,#f09ba3); ;
 
 }
 
+.reset-view-btn img{
+/*align-items: center;*/
+margin: auto;
+border: 5px solid transparent;
+
+}
+
+.ResetView{
+  margin-left:800px;
+  margin-top:350px;
+}
